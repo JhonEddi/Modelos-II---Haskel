@@ -26,3 +26,14 @@ mayorElemento [a] = a
 mayorElemento (x:xs) 
  | x > mayorElemento xs = x 
  | otherwise = mayorElemento xs
+
+--contar numeros pares de una lista recursivamente
+contarPares::[Int]->Int
+contarPares[] = 0
+contarPares(x:xs)
+ | mod x 2 == 0 = 1 + contarPares(xs)
+ | otherwise = contarPares(xs)
+
+--contar numeros pares con funciones de orden superior
+contarParFunciones :: [Int]->Int
+contarParFunciones(x:xs) = length (filter even (x:xs))
