@@ -37,3 +37,19 @@ contarPares(x:xs)
 --contar numeros pares con funciones de orden superior
 contarParFunciones :: [Int]->Int
 contarParFunciones(x:xs) = length (filter even (x:xs))
+
+--Elemento dentro de una lista
+pertenece :: Int->[Int]-> Bool
+pertenece x [] = False
+pertenece x (y:ys)
+ | x==y = True
+ | otherwise =  pertenece x ys
+
+
+--Lista dentro de una lista
+perteneceLista :: [Int] -> [Int] -> Bool
+perteneceLista [] [] = True
+perteneceLista [] lista = True
+perteneceLista lista [] = False
+perteneceLista (x:xs) (y:ys) = pertenece x (y:ys) && perteneceLista xs (y:ys)
+
