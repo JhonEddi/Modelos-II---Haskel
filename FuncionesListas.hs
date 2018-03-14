@@ -18,7 +18,7 @@ sumaPares(x:xs)
  
 --suma de los numeros pares de una lista con funciones
 sumaParesFunciones::[Int]->Int
-sumaParesFunciones(x:xs) = foldr (+) x xs
+sumaParesFunciones(x:xs) = foldr (+) 0 [x | x <- (x:xs), mod x 2 == 0]
 
 --contar numeros impares de una lista recursivamente
 contarImpares::[Int]->Int
