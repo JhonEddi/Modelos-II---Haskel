@@ -45,7 +45,7 @@ perteneceLista [] lista = True
 perteneceLista lista [] = False
 perteneceLista (x:xs) (y:ys) = pertenece x (y:ys) && perteneceLista xs (y:ys)
 
---lista dentro de una lista funciones de orden superior
+--lista dentro de una lista funciones
 contLista::[Int]->[Int]->Bool
 contLista (x:xs) (y:yi) = and [elem t (y:yi)|t <- (x:xs)
 
