@@ -9,16 +9,16 @@ invertirLista ::[Int]->[Int]
 invertirLista [] = []
 invertirLista (x:xs) = (invertirLista xs) ++ [x]
 
---contar numeros pares de una lista recursivamente
-contarPares::[Int]->Int
-contarPares[] = 0
-contarPares(x:xs)
- | mod x 2 == 0 = 1 + contarPares(xs)
- | otherwise = contarPares(xs)
-
---contar numeros pares con funciones de orden superior
-contarParFunciones :: [Int]->Int
-contarParFunciones(x:xs) = length (filter even (x:xs))
+--suma de los numeros pares de una lista recursivamente
+sumaPares::[Int]->Int
+sumaPares[] = 0
+sumaPares(x:xs)
+ | mod x 2 == 0 = x + sumaPares(xs)
+ | otherwise = sumaPares(xs)
+ 
+--suma de los numeros pares de una lista con funciones
+sumaParesFunciones::[Int]->Int
+sumaParesFunciones(x:xs) = foldr (+) x xs
 
 --contar numeros impares de una lista recursivamente
 contarImpares::[Int]->Int
