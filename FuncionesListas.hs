@@ -45,9 +45,16 @@ perteneceLista [] lista = True
 perteneceLista lista [] = False
 perteneceLista (x:xs) (y:ys) = pertenece x (y:ys) && perteneceLista xs (y:ys)
 
---lista dentro de una lista funciones
-contLista :: [Int] -> [Int] -> Bool
-contLista (x:xs) (y:ys) = foldl (&&) True [pertenece x (y:ys) | x <- (x:xs)]
+--Lista dentro de una lista con funciones
+--Elemento dentro de una lista
+en_lista :: [Int]->Int-> Bool
+en_lista [] x = False
+en_lista (y:ys) x
+ | x==y = True
+ | otherwise =  en_lista ys x
+  
+perteneceListaF :: [Int] -> [Int] -> Bool
+perteneceListaF (x:xs) (y:ys) = foldl (&&) True (map (en_lista (x:xs)) (y:ys))
 
 --encontrar mayor de una lista recursivamente
 mayorElemento :: [Int] -> Int
