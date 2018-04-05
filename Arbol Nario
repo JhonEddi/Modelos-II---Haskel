@@ -1,0 +1,16 @@
+class Nario:
+    def __init__(self,valor, hijos=[]):
+        self.valor = valor
+        self.hijos = hijos
+
+arbolS = Nario(25, [Nario(10), Nario(100)])
+
+def buscar(arbol, valor):
+    if arbol.valor == valor:
+        return True
+    return buscar_hijos(arbol.hijos, valor)
+
+def buscar_hijos(lista, valor):
+    if lista==[]:
+        return False
+    return buscar(lista[0], valor) or buscar_hijos(lista[1:], valor)
