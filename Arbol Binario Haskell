@@ -3,17 +3,17 @@ data Arbol a = Empty | Node a (Arbol a) (Arbol a) deriving (Show)
 arbolS :: Arbol Integer
 arbolS = Node 10 (Node 5 Empty Empty) (Node 50 (Node 30 (Node 20 Empty Empty) (Node 40 Empty Empty)) Empty)
 
-inorder :: Arbol a -> [a]
-inorder Empty = []
-inorder (Node r i d) = inorder i ++ [r] ++ inorder d
-
 buscar :: Ord a => a -> Arbol a -> Bool
 buscar x Empty = False
 buscar x (Node r i d)
 	| x == r = True
 	| x < r = buscar x i
 	| otherwise = buscar x d
-	
+
+inorder :: Arbol a -> [a]
+inorder Empty = []
+inorder (Node r i d) = inorder i ++ [r] ++ inorder d
+
 insertar :: Ord a => a -> Arbol a -> Arbol a
 insertar x Empty = Node x Empty Empty
 insertar x (Node r i d)
