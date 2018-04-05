@@ -1,0 +1,21 @@
+archivo = open('laberinto.txt', 'r')
+
+def cargarArchivo():
+    return [list (linea[:-1]) for linea in open ("laberinto.txt").readlines()]
+
+def buscarX(matriz, f, c):
+    if (matriz[f][c]=='x'):
+        return [f]+[c]
+    if (c>1):
+        print (f,",",c)
+        return buscarX(matriz, f, c-1)
+    if (f>1):
+        print (f,",",c)
+        return buscarX(matriz, f-1,c)
+
+1111111
+1000101
+11x0001
+1111001
+1y00001
+1111111
